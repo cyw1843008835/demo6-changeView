@@ -9,13 +9,35 @@
 import SwiftUI
 
 struct ContentView: View {
+     @State var show = false
     var body: some View {
-        Text("Hello, World!")
+       
+        Button(action: {
+         self.show.toggle()
+        }) {
+            Text("Button")
+            .background(Color.green)
+            .cornerRadius(10)
+            .padding()
+                .foregroundColor(Color .white)
+               
+            
+           
+        }.sheet(isPresented: self.$show) {
+
+            middle(show: self.$show)
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+struct middle: View{
+      @Binding var show : Bool
+    var body: some View{
+        Text("hello")
     }
 }
